@@ -1,0 +1,14 @@
+[user]
+	email = vaibhav.upreti16@gmail.com
+	name = VaibhavUpreti
+	signingkey = vaibhav.upreti16@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	gpgsign = true
+[gpg]
+	#format = gpg
+	program = /usr/local/bin/gpg
