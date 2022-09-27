@@ -35,7 +35,9 @@ Plug 'nvie/vim-flake8'
 
 " Misc plugins
 
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary' "Comment out code gc
+
+
 
 
 call plug#end()
@@ -57,9 +59,11 @@ nmap<tab> :NERDTreeToggle<CR>
 "Python
 syntax on
 set t_Co=256
-
 set foldmethod=indent
 set foldlevel=99
+
+
+
 
 
 
@@ -79,5 +83,4 @@ let g:ale_linters= {'python': ['flake8']}
 
 "ShortCut Pane navigation
 map<>
-
 
