@@ -6,35 +6,47 @@
 "   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 "
 
-
-
-set number
-set nocompatible 		" be improved, required
 set autoindent
-set tabstop=4
+set complete+=kspell
+set completeopt=menuone,longest
+set encoding=UTF-8
+set mouse=a
+set number
+set nocompatible
 set shiftwidth=4
 set smarttab
+set shortmess+=c
 set softtabstop=4
-set mouse=a
-set encoding=UTF-8
+set tabstop=4
+
+" Omnicomplete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
+
 
 filetype off
 
-set autoindent
 call plug#begin('~/.config/nvim/plugged')
 
+" Gruvbox theme
 Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
 
+"
 Plug 'preservim/nerdcommenter'
-
 Plug 'preservim/nerdtree'
 Plug 'norcalli/nvim-colorizer.lua'
 
+" vim airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" vim snippets && syntax highlighting
 Plug 'sirver/ultisnips'
+Plug 'Shougo/neocomplete.vim'
+
 
 "Python Plugins
 Plug 'dense-analysis/ale'
@@ -52,6 +64,11 @@ Plug 'andweeb/presence.nvim'
 Plug 'wfleming/vim-codeclimate'
 
 
+" Automatically show Vim's complete menu
+
+Plug 'vim-scripts/AutoComplPop'
+
+Plug 'Shougo/neocomplete.vim'
 " Added Today PlugIns
 
 " Gitsigns
@@ -65,9 +82,21 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 
+" Rails and ruby plugins
+
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+
+" Git lens like plugin
+Plug 'APZelos/blamer.nvim'
+
 
 call plug#end()
 "Functions
+
+
+let g:python3_host_prog = '/Users/vaibhavupreti/.pyenv/shims/python3'
+let g:python_host_prog = '/Users/vaibhavupreti/.pyenv/shims/python'
 
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
@@ -82,7 +111,10 @@ endif
 lua require 'colorizer'.setup()
 
 "NerdTree
-let NERDTreeQuitOnOpen=1
+
+let g:NERDTreeQuitOnOpen = 0
+
+
 "nmap<tab> :NERDTreeToggle<CR>
 "
 nmap <tab> :NERDTreeToggle<CR>
@@ -174,9 +206,12 @@ au BufNewFile, BufRead *.py
 let g:ale_linters= {'python': ['flake8']}
 
 
+" Blamer- gitlens like plugin
+let g:blamer_enabled = 1
 
 
 "ShortCut Pane navigation
+
 "map<>
 
 
