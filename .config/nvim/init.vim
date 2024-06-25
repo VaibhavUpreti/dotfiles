@@ -90,6 +90,16 @@ Plug 'tpope/vim-rails'
 " Git lens like plugin
 Plug 'APZelos/blamer.nvim'
 
+" Svelet Syntax plugin
+Plug 'leafOfTree/vim-svelte-plugin'
+
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'jparise/vim-graphql'        " GraphQL syntax
+
+
+
 
 call plug#end()
 "Functions
@@ -238,8 +248,20 @@ let g:presence_workspace_text      = "Working on %s"
 let g:presence_line_number_text    = "Line %s out of %s"
 
 
+" Svelete syntax eager load on opening
+let g:vim_svelte_plugin_load_full_syntax = 1
+
+
+"TypeScript
+"
+let g:coc_global_extensions = ['coc-tsserver']
+let html_no_rendering=1
+
+
 "Gitsigns
+
 
 lua << EOF
 require('gitsigns').setup()
 EOF
+
